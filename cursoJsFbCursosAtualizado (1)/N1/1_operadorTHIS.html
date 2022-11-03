@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador THIS</title>
+</head>
+<body>
+
+
+    <script>
+
+        // function aluno(nome, nota){
+        //     this.nome = nome //'this.nome' faz referencia ao um elemento da minha função chamado 'nome' ('this.nome' é como se fosse uma variavel declarada para a função aluno, que recebe o valor do parametro 'nome')
+        //     this.nota = nota
+
+        //     console.log(nome)
+        //     console.log(nota)
+        // }
+        // aluno("Wellington", 100)
+
+
+        function aluno(nome, nota){
+            this.nome = nome 
+            this.nota = nota
+
+            this.dados_arrow= function(){
+                setTimeout(()=>{
+                    console.log(this.nome)
+                    console.log(this.nota)
+                },2000)
+            }
+        }
+        const al1 = new aluno("Wellington", 100)
+        al1.dados_arrow()
+
+    </script>
+    
+</body>
+</html>
