@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionando elementos no DOM</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            background: #025;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .curso{
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            border: 4px solid #888;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px 0px;
+            cursor: pointer;
+        }
+        .selecionado{
+            background: #800 !important;
+            color: #fcc !important;
+            border-color: #f00 !important;
+        }
+
+        .caixa{
+            border:  4px solid #000;
+            background:#eee;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            height: 500px;
+            width: 300px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <main>
+        <div id="caixa1" class="caixa">
+            <!-- Cursos serão adicionados aqui -->
+        </div>
+    </main>
+
+    <script>
+
+        // FORMA AUTOMATICA
+
+        const caixa1 = document.querySelector("#caixa1")
+
+        const cursos = ["HTML","CSS","JAVASCRIPT","PHP","REACT","MYSQL"]
+
+        cursos.map((e,chave)=>{
+            const novoElemento = document.createElement("div")
+            novoElemento.setAttribute("id","c"+(chave + 1))
+            novoElemento.setAttribute("class", "curso c"+(chave + 1))
+            novoElemento.innerHTML = e
+            caixa1.appendChild(novoElemento)
+        })
+
+        // FORMA MANUAL
+
+        
+        const novoElemento = document.createElement("div") //Criando 'div'
+        novoElemento.setAttribute("id","c7") //Criando ums 'id' com o nomen'c7'
+        novoElemento.setAttribute("class", "curso c7") //Criando uma 'class' com o nome 'curso e c1'
+        novoElemento.innerHTML = "ReactNative" //Criando texto no elemento
+
+        caixa1.appendChild(novoElemento) //Adicionando esse elemento como o filho do 'caixa1'
+
+        
+
+    </script>
+    
+</body>
+</html>
