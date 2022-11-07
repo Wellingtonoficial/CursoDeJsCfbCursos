@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÉTODO TOGGLE</title>
+
+
+    <style>
+
+        #caixa{
+            width: 300px;
+            height: 300px;
+            border: solid 2px black;
+        }
+
+        .teste{
+            background: red;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="caixa">
+
+    </div>
+
+
+    <script>
+
+        document.getElementById('caixa').addEventListener('click', ()=>{
+            document.getElementById('caixa').classList.toggle('teste') //Se o elemento 'caixa' não tiver a class 'teste', ele adiciona, se tiver, ele tira.
+        })
+
+    </script>
+    
+</body>
+</html>
