@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Método REDUCE</title>
+
+        <style>
+
+            *{
+                padding: 0px;
+                margin: 0px;
+                border: none;
+                box-sizing:border-box;
+                font-size: large;
+            }
+            .caixa{
+                border: 5px solid #000;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                margin: 5px;
+                padding: 5px;
+            }
+            .verde{
+                border-color: rgb(20, 120, 23) !important;
+                background-color: rgb(220, 255, 225) !important;
+            }
+            .azul{
+                border-color: rgb(20, 60, 120) !important;
+                background-color: rgb(220, 230, 255) !important;
+            }
+            .vermelho{
+                border-color: rgb(120, 20, 20) !important;
+                background-color: rgb(255, 220, 220) !important;
+            }
+            button{
+                width: 150px;
+                height: 40px;
+                background-color: #025;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 10px;
+                margin-top: 5px;
+            }
+            #caixa_pesquisar input{
+                padding: 10px;
+                border-radius: 5px;
+                width: 300px;
+            }
+        </style>
+        
+
+    </head>
+    <body>
+        <div id="caixa_array" class="caixa verde">
+            <p>Array:</p>
+            <p id="array"></p>
+        </div>
+        <div id="caixa_reduzir" class="caixa azul">
+            <button id="btnReduzir">Reduzir</button>
+        </div>
+        <div id="caixa_resultado" class="caixa vermelho">
+            <p>Resultado:</p>
+            <p id="resultado"></p>
+        </div>
+        
+
+        <script>
+
+            const p_array = document.getElementById('array')
+            const btnReduzir = document.getElementById('btnReduzir')
+            const resultado = document.getElementById('resultado')
+
+            
+            const elementosArray = [1,2,3,4,5]
+            
+            let anti = []
+            let atu  = []
+            let dobro = []
+
+            p_array.innerHTML = "["+elementosArray+"]"
+            btnReduzir.addEventListener('click', (evt)=>{
+
+                resultado.innerHTML = elementosArray.reduce((anterior, atual, pos)=>{
+                    anti.push(anterior)
+                    atu.push(atual)
+                    dobro.push(atual * 2)
+                    return atual + anterior
+                })
+                resultado.innerHTML += "<br />Valor anterior:" + anti + "<br />Valor Atual:" + atu + "<br />Dobro do valor atual: " + dobro
+            })
+            //O método reduce()executa uma função redutora (fornecida por você) para cada elemento do array, gerado em um único valor de retorno.(Gera uma redução do array)
+
+        </script>
+
+    </body>
+</html>
+
